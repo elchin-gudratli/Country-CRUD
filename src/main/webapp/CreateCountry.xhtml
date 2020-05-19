@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+      > 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+      <table>
+       <tr>
+        <td><h:outputLabel for="name" value="Name : " /></td>
+        <td><p:inputText id="name" value="#{CountryBean.name}">
+          <f:validateLength minimum="2" />
+          <p:ajax event="blur" update="nameMsg" />
+         </p:inputText>
+         <p:message id="nameMsg" for="name" display="icon"/>
+        </td>
+       </tr>
+       <tr>
+        <td><h:outputLabel for="population" value="Population : " /></td>
+        <td><p:inputText id="population" value="#{CountryBean.population}">
+          <f:validateLength minimum="2" />
+          <p:ajax event="blur" update="populationMsg" />
+         </p:inputText>
+         <p:message id="populationMsg" for="population" display="icon"/>
+        </td>
+       </tr>
+          <tr>
+        <td><p:commandButton id="addCountry" value="Ekle" action="#{CountryBean.addCountry()}" ajax="false"/></td>
+       </tr>
+      </table>
+     </h:form>
+</body> 
+</html>

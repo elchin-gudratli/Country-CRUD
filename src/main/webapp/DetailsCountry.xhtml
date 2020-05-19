@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ülke Detay  İşlemleri</title>
+        <link href="default.css" rel="stylesheet" type="text/css" />
+        <link href="cssLayout.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <h:form>
+            <div id="giris">
+                <br/>
+                <h:panelGrid columns="2">
+                    <h:outputText style="font-weight: bold;"  value="Name:"/>
+                    <h:inputText value="#{CountryBean.seciliCountry.countryName}" style="width: 380px;" />
+                </h:panelGrid>
+                <br/>
+                <h:panelGrid columns="2">
+                    <h:outputText style="font-weight: bold;"  value="Araba Detay:"/>
+                    <p:editor value="#{CountryBean.seciliCountry.population}"/>
+                </h:panelGrid>
+        
+            </div>
+            <div id="footer"> Copyright @www.BilgeAdam.com</div>
+        </h:form>
+    </h:body>
+</html>

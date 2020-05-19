@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+  	   <link href="default.css" rel="stylesheet" type="text/css" />
+        <link href="cssLayout.css" rel="stylesheet" type="text/css" />
+</h:head> 
+<h:body> 
+
+
+<h:form>
+
+                 <h:dataTable
+                    width="94%" value="#{CountryBean.countryList}"
+                    rendered="#{CountryBean.countryList ne null}"
+                    var="country"  styleClass="bloglar" headerClass="tableHead">
+                    <f:facet name="header">
+                        Ülke Listesi
+                    </f:facet>
+                    <h:column headerClass="colHead">
+                        <f:facet name="header">
+                           Ülke id
+                        </f:facet>
+                        <h:outputText value="#{country.id}"/>
+                    </h:column>
+                    
+                     <h:column headerClass="colHead">
+                        <f:facet name="header">
+                           Ülke Adı
+                        </f:facet>
+                        <h:outputText value="#{country.countryName}"/>
+                    </h:column>
+                     <h:column headerClass="colHead">
+                        <f:facet name="header">
+                            Nüfus
+                        </f:facet>
+                        <h:outputText value="#{country.population}"/>
+                    </h:column>
+                        <h:column headerClass="colHead">
+                        <f:facet name="header">
+                            Bayrak
+                        </f:facet>
+                        <h:graphicImage url="${country.imageUrl}"  width="200" height="171" />
+                    </h:column>
+                      <h:column headerClass="colHead">
+                        <f:facet name="header">
+                            Detay
+                        </f:facet>
+                         <h:commandLink action="#{CountryBean.UlkeDetayGetir(country)}" value="Ulke Detaya Git" />
+                    </h:column>
+                    
+                </h:dataTable>
+                <a href="CreateCountry.xhtml">Yeni Ulke Olustur</a>
+
+
+</h:form>
+
+</h:body> 
+</html>
